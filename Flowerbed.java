@@ -57,7 +57,7 @@ public class Flowerbed {
                 // check right and left if we can place
 
                 boolean left = (i == 0) || (flowerbed[i - 1] == 0);
-                boolean right = (i == n - 1) || (flowerbed[i + 1] == 0);
+                boolean right = (i == len - 1) || (flowerbed[i + 1] == 0);
 
                 if (left && right) {
                     flowerbed[i] = 1; // planted
