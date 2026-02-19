@@ -16,7 +16,7 @@ public class Array {
 
     // move zeros to end
 
-    public void pushZerosToEnd(int[] arr) {
+    public int[] pushZerosToEnd(int[] arr) {
 
         int count = 0;
         for (int i = 0; i < arr.length - 1; i++) {
@@ -29,20 +29,25 @@ public class Array {
             arr[count] = 0;
             count++;
         }
-
+        return arr;
     }
 
-    public static void main(String[] args) {
-        int[] arr = { 10, 20, 30, 40, 0 };
-        System.out.println("before");
+    // second approach to move zeros element to the end
+
+    public int[] pushZerosToEnds(int[] arr) {
+
+        int count = 0;
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[count];
+                arr[count] = temp;
+
+                count++;
+            }
+
         }
-        Array a = new Array();
-        a.atBeginning(arr, 50);
-        System.out.println("after");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        return arr;
     }
+
 }
