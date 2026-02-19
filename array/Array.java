@@ -16,7 +16,7 @@ public class Array {
 
     // move zeros to end
 
-    public int[] pushZerosToEnd(int[] arr) {
+    public void pushZerosToEnd(int[] arr) {
 
         int count = 0;
         for (int i = 0; i < arr.length - 1; i++) {
@@ -29,12 +29,12 @@ public class Array {
             arr[count] = 0;
             count++;
         }
-        return arr;
+
     }
 
     // second approach to move zeros element to the end
 
-    public int[] pushZerosToEnds(int[] arr) {
+    public void pushZerosToEnds(int[] arr) {
 
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -47,7 +47,32 @@ public class Array {
             }
 
         }
-        return arr;
+
+    }
+
+    // reverse array elements
+    void reverseArray(int[] arr) {
+
+        // let use two pointers
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+
+            // swap
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            // increase left pointer
+
+            left++;
+
+            // decrease right pointer
+            right--;
+
+        }
     }
 
 }
