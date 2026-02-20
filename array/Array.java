@@ -97,4 +97,41 @@ public class Array {
         }
     }
 
+    // rotate arrat counter clockwise : second option
+
+    static int[] rotateArr(int[] arr, int d) {
+
+        int n = arr.length;
+        d %= n;
+        int cycles = gfd(d, n);
+
+        for (int i = 0; i < cycles; i++) {
+            int start = arr[i];
+            int currentIdx = i;
+
+            while (true) {
+                int nextIdx = (currentIdx + d) % n;
+
+                if (nextIdx == i)
+                    break;
+
+                arr[currentIdx] = arr[nextIdx];
+                currentIdx = nextIdx;
+            }
+
+            arr[currentIdx] = start;
+        }
+        return arr;
+    }
+
+    // helper function
+    public static int gfd(int a, int b) {
+        if (b == 0)
+            return a;
+        return gfd(b, a % b);
+    }
+
+    public static void main(String[] args) {
+
+    }
 }
