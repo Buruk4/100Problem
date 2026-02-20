@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Arrays;
+
 public class Array {
 
     // this class will demostarate array operations
@@ -129,6 +131,24 @@ public class Array {
         if (b == 0)
             return a;
         return gfd(b, a % b);
+    }
+
+    // return second largest element from array: if there is not second largest
+    // element return -1
+    public int getSecondLargest(int[] arr) {
+
+        int result = 0;
+        Arrays.sort(arr);
+        for (int i = arr.length - 1; i > 0; i--) {
+
+            if (arr[i] > arr[i - 1]) {
+                result = arr[i - 1];
+                return result;
+            }
+
+        }
+        return -1;
+
     }
 
     public static void main(String[] args) {

@@ -1,24 +1,12 @@
 class IntegerPalindrome {
 
-
-
-
-
-
-
-
-
     /*
-         give integer x return true if it is palindrome
-
-         e.g -->  121 
-             output : true
-
-            -->   -121 
-               output : false     (121-)
-    
-    
-    */
+     * give integer x return true if it is palindrome
+     * e.g --> 121
+     * output : true
+     * --> -121
+     * output : false (121-)
+     */
     public boolean isPalindrome(int x) {
 
         int result = 0;
