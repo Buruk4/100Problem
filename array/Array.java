@@ -250,6 +250,26 @@ public class Array {
     }
 
     // method 2 : hash map
+    public ArrayList<Integer> findMajoritys(int[] arr) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer> res = new ArrayList<>();
+
+        int floor = arr.length / 3;
+
+        for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (int key : map.keySet()) {
+            if (map.get(key) > floor) {
+                res.add(key);
+            }
+
+        }
+        Collections.sort(res);
+        return res;
+    }
 
     //
     public static void main(String[] args) {
