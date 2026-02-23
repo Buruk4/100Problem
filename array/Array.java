@@ -1,6 +1,9 @@
 package array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class Array {
 
@@ -207,6 +210,48 @@ public class Array {
         return arr;
     }
 
+    /*
+     * Given an array arr[] consisting of n integers,
+     * the task is to find all the array elements which occurs more than floor(n/3)
+     * times.
+     * Note: The returned array of majority elements should be sorted.
+     * 
+     */
+
+    // method 1: brute force
+    public ArrayList<Integer> findMajority(int[] arr) {
+
+        ArrayList<Integer> res = new ArrayList<>();
+
+        int idx = 0;
+
+        int floor = arr.length / 3;
+        while (idx < arr.length) {
+            int count = 0;
+
+            for (int i = 0; i < arr.length; i++) {
+
+                if (idx != i && arr[idx] == arr[i]) {
+                    count++;
+                }
+
+                if (count > floor) {
+                    res.add(arr[i]);
+
+                }
+
+            }
+            idx++;
+
+        }
+
+        Collections.sort(res);
+        return res;
+    }
+
+    // method 2 : hash map
+
+    //
     public static void main(String[] args) {
 
         Array a = new Array();
