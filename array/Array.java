@@ -271,16 +271,44 @@ public class Array {
         return res;
     }
 
-    //
+    // Buy or sell to stock to maximize profits
+
+    public int maxProfitRec(int[] prices, int start, int end) {
+
+        int res = 0;
+
+        // consider every pair and find the profit with
+        // and recursively find profits on left and right
+
+        for (int i = start; i <= end; i++) {
+
+            for (int j = i + 1; j < end + 1; j++) {
+                if (prices[j] > prices[i]) {
+                    int current = (prices[j] - prices[i])
+                            + maxProfitRec(prices, start, i - 1) +
+                            maxProfitRec(prices, j + 1, end);
+
+                    res = Math.max(res, current);
+                }
+
+            }
+
+        }
+
+        return res;
+    }
+
+    public int maximumProfit(int[] prices) {
+        return maxProfitRec(prices, 0, prices.length - 1);
+    }
+
     public static void main(String[] args) {
 
         Array a = new Array();
         int[] arr = { 2, 4, 1, 7, 5, 0 };
-        int[] res = a.nextPermutation(arr);
+        int maxP = a.maximumProfit(arr);
 
-        for (int i : res) {
-            System.out.print(i + " ");
-        }
+        System.out.print("Maximum profit is : " + maxP);
 
     }
 }
